@@ -1,4 +1,4 @@
-//Rahulio 1.0.0 Discord Bot
+//Rahulio 1.0.4 Discord Bot
 
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
