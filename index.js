@@ -1,4 +1,4 @@
-//Rahulio 1.0.4 Discord Bot
+//Rahulio 1.0.5 Discord Bot
 
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
@@ -30,8 +30,18 @@ client.on('message', message => {
 	if(command === 'test') message.channel.send('Rahulio ' + version + ' is online and functioning!');
 	
 
+	if (command === 'coin')
+		const coin = Math.floor(Math.random()*101);
+		if (coin == 100) message.channel.send(`Coin landed on its side!`);
+		else if (coin <= 49) message.channel.send(`Heads!`);
+		else message.channel.send(`Tails!`);
 
-	if (command.startsWith('img')) 
+
+	if (message === `!play disingenious` || message === `!play disingenuous`)
+		message.member.kick(`Kicked for poor taste`);
+		message.channel.send(`${message.author.tag} has been kicked for poor taste`);
+
+	/*if (command.startsWith('img')) 
 		switch (args[0]){
 			case 'img':
 			img(command.substring(4));
@@ -73,7 +83,7 @@ client.on('message', message => {
 			});	
 	
 		};
-		
+	*/	
 	
 	if (command === 'help') {
 		message.channel.send('Private message sent!');
@@ -85,13 +95,14 @@ client.on('message', message => {
 			.setDescription('Thank you for calling the r$help command!')
 			.setThumbnail('https://imgur.com/12fKOZZ.jpg')
 			.addFields(
-				{ name: 'Popular Commands', value: 'None.'},
-				{ name: '\u200B', value: '\u200B' },
+				{ name: 'Popular Commands', value: 'r$carti, r$server, r$test, r$coin\n'},
+			//	{ name: '\u200B', value: '\u200B' },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
 			)
 			//.addField('Inline field title', 'Some value here', true)
-			.setImage('https://imgur.com/12fKOZZ.jpg')
+			//.setImage('https://imgur.com/12fKOZZ.jpg')
+			.addField('\n', 'For additional questions, feel free not to contact me.')
 			.setTimestamp()
 			.setFooter('Rahulio ' + version, 'https://imgur.com/12fKOZZ.jpg');
 		message.author.send(embed);
@@ -103,5 +114,55 @@ client.on('message', message => {
 		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}\nCreated: ${message.guild.createdAt}\nRegion: ${message.guild.region}\nIcon: ${message.guild.iconURL()}`);
 	
 	}
+	
+	if (command.startsWith(`carti`)){
+
+		if(args.length <= 1){message.channel.send(`Please input at least one term to ensure accurate Cartinese translation!`);}
+		else{
+			const lineOne = [`+*`,`ok !`,`+!:)`,`:black_heart:`,`*  *`,`!!`,`:butterfly:`];
+			const lineThree = [`++**`,`+:)`,`:broken_heart:`,`:mushroom::mushroom:`,`& *`,`:two_hearts:`,`lit` + `**!++`];
+			const lineTwo = [`:)`,`xo !`,`:(`,`slatt_!`,`*`,`#love *`,`ok !`, "", "", "", ""];
+			const temp;
+
+			//line 1
+			const bfly = Math.floor(Math.random()*10);
+				if (bfly == 0){
+				message.channel.send(lineOne[6] + lineOne[6] + lineOne[6] + `\n`);
+			}
+			else {
+				for (var i = 0; i < 3; i++) {
+				temp = lineOne[Math.floor(Math.random() * (lineOne.length-1))];
+				message.channel.send(temp + ` `);
+				}
+				message.channel.send(`\n`);
+			}
+
+			//line 2
+			for(var n = 1; n < args.length; n++ ){
+				temp = lineTwo[Math.floor(Math.random() * lineTwo.length)];
+				if (!(temp === '')){
+				message.channel.send(args[n] + ` ` + temp + ` `);
+				}
+				else message.channel.send(args[n] + ` `);
+			}
+			message.channel.send(`\n`);
+
+			//line 3
+			for (var j = 0; j < 3; j++) {
+				temp = lineThree[Math.floor(Math.random() * lineThree.length)];
+				message.channel.send(temp + ` `);
+			}
+		}
+
+	}
 
 })
+
+client.on('guildMemberAdd', member => {
+	const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
+	if (!channel) return;
+
+	const emb = new Discord.MessageEmbed()
+		.setTitle(`Welcome to `+ guild.name + `, ${member}!\nPlease familiarize yourself with the server's rules.`);
+	channel.send(emb);
+});
