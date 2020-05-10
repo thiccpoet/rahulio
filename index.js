@@ -24,24 +24,26 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(" ");
 	const command = args.shift().toLowerCase();
 	
-
+	console.log(args);
 
 
 	if(command === 'test') message.channel.send('Rahulio ' + version + ' is online and functioning!');
 	
 
-	if (command === 'coin')
+	else if (command === 'coin'){
 		var coin = Math.floor(Math.random()*101);
 		if (coin == 100) message.channel.send(`Coin landed on its side!`);
 		else if (coin <= 49) message.channel.send(`Heads!`);
 		else message.channel.send(`Tails!`);
+	}
 
 
-	if (message === `!play disingenious` || message === `!play disingenuous`)
+	else if (message === `!play disingenious` || message === `!play disingenuous`){
 		message.member.kick(`Kicked for poor taste`);
-		message.channel.send(`${message.author.tag} has been kicked for poor taste`);
+		message.channel.send(`${message.author.tag} has been kicked for poor taste.`);
+	}
 
-	/*if (command.startsWith('img')) 
+	/*else if (command.startsWith('img')) 
 		switch (args[0]){
 			case 'img':
 			img(command.substring(4));
@@ -85,7 +87,7 @@ client.on('message', message => {
 		};
 	*/	
 	
-	if (command === 'help') {
+	else if (command === 'help') {
 		message.channel.send('Private message sent!');
 		const embed = new Discord.MessageEmbed()
 			.setColor('#c334eb')
@@ -110,12 +112,12 @@ client.on('message', message => {
 }	
 
 
-	if (command === `server`) {
+	else if (command === `server`) {
 		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}\nCreated: ${message.guild.createdAt}\nRegion: ${message.guild.region}\nIcon: ${message.guild.iconURL()}`);
 	
 	}
 	
-	if (command.startsWith(`carti`)){
+	else if (command.startsWith(`carti`)){
 
 		if(args.length <= 1){message.channel.send(`Please input at least one term to ensure accurate Cartinese translation!`);}
 		else{
