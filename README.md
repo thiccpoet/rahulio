@@ -3,7 +3,7 @@
 ```
 //Rahulio 1.0.5 Discord Bot
 //Main method code can be found in index.js
-//Here are the initialization and instantiation of the bot
+//Here you can find the initialization and instantiation of the bot
 
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
