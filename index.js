@@ -124,36 +124,33 @@ client.on('message', message => {
 			const lineOne = [`+*`,`ok !`,`+!:)`,`:black_heart:`,`*  *`,`!!`,`:butterfly:`];
 			const lineThree = [`++**`,`+:)`,`:broken_heart:`,`:mushroom::mushroom:`,`& *`,`:two_hearts:`,`lit` + `**!++`];
 			const lineTwo = [`:)`,`xo !`,`:(`,`slatt_!`,`*`,`#love *`,`ok !`, "_", "_", "_", "_"];
-			var temp;
+			var temp1;
+			var temp2;
+			var temp3;
 
 			//line 1
 			var bfly = Math.floor(Math.random()*10);
-				if (bfly == 0){
+			if (bfly == 0){
 				message.channel.send(lineOne[6] + lineOne[6] + lineOne[6] + `\n`);
 			}
 			else {
-				for (var i = 0; i < 3; i++) {
-				temp = lineOne[Math.floor(Math.random() * (lineOne.length-1))];
-				message.channel.send(temp + ` `);
-				}
-				message.channel.send(`\n`);
+				temp1 = lineOne[Math.floor(Math.random() * (lineOne.length-1))];
+				temp2 = lineOne[Math.floor(Math.random() * (lineOne.length-1))];
+				temp3 = lineOne[Math.floor(Math.random() * (lineOne.length-1))];
+				message.channel.send(temp1 + ` ` + temp2 + ` ` + temp3 + ` `);
 			}
 
 			//line 2
-			for(var n = 1; n < args.length; n++ ){
-				temp = lineTwo[Math.floor(Math.random() * lineTwo.length)];
-				if (!(temp === '_')){
-				message.channel.send(args[n] + ` ` + temp + ` `);
-				}
-				else message.channel.send(args[n] + `_`);
-			}
-			message.channel.send(`\n`);
+			temp1 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
+			temp2 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
+			temp3 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
+			message.channel.send(temp1 + ` ` + temp2 + ` ` + message.substring(8) + ` ` + temp3);		
 
 			//line 3
-			for (var j = 0; j < 3; j++) {
-				temp = lineThree[Math.floor(Math.random() * lineThree.length)];
-				message.channel.send(temp + ` `);
-			}
+			temp1 = lineThree[Math.floor(Math.random() * lineThree.length)];
+			temp2 = lineThree[Math.floor(Math.random() * lineThree.length)];
+			temp3 = lineThree[Math.floor(Math.random() * lineThree.length)];
+			message.channel.send(temp1 + ` ` + temp2 + ` ` + temp3 + ` `);
 		}
 
 	}
