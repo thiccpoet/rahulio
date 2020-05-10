@@ -91,7 +91,7 @@ client.on('message', message => {
 			.setColor('#c334eb')
 			.setTitle('Rahulio ' + version + ' Help Menu')
 			.setURL('https://github.com/thiccpoet/rahulio/')
-			.setAuthor('Rahul Chari', 'https://imgur.com/12fKOZZ.jpg', 'https://discord.js.org')
+			.setAuthor(author, 'https://imgur.com/12fKOZZ.jpg', 'https://discord.js.org')
 			.setDescription('Thank you for calling the r$help command!')
 			.setThumbnail('https://imgur.com/12fKOZZ.jpg')
 			.addFields(
