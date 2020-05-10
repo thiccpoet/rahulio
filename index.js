@@ -104,7 +104,7 @@ client.on('message', message => {
 			)
 			//.addField('Inline field title', 'Some value here', true)
 			//.setImage('https://imgur.com/12fKOZZ.jpg')
-			.addField('\n', 'For additional questions, feel free not to contact me.')
+			.addField('***', 'For additional questions, feel free not to contact me.')
 			.setTimestamp()
 			.setFooter('Rahulio ' + version, 'https://imgur.com/12fKOZZ.jpg');
 		message.author.send(embed);
