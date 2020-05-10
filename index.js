@@ -31,7 +31,7 @@ client.on('message', message => {
 	
 
 	if (command === 'coin')
-		const coin = Math.floor(Math.random()*101);
+		var coin = Math.floor(Math.random()*101);
 		if (coin == 100) message.channel.send(`Coin landed on its side!`);
 		else if (coin <= 49) message.channel.send(`Heads!`);
 		else message.channel.send(`Tails!`);
@@ -122,10 +122,10 @@ client.on('message', message => {
 			const lineOne = [`+*`,`ok !`,`+!:)`,`:black_heart:`,`*  *`,`!!`,`:butterfly:`];
 			const lineThree = [`++**`,`+:)`,`:broken_heart:`,`:mushroom::mushroom:`,`& *`,`:two_hearts:`,`lit` + `**!++`];
 			const lineTwo = [`:)`,`xo !`,`:(`,`slatt_!`,`*`,`#love *`,`ok !`, "", "", "", ""];
-			const temp;
+			var temp;
 
 			//line 1
-			const bfly = Math.floor(Math.random()*10);
+			var bfly = Math.floor(Math.random()*10);
 				if (bfly == 0){
 				message.channel.send(lineOne[6] + lineOne[6] + lineOne[6] + `\n`);
 			}
