@@ -119,11 +119,11 @@ client.on('message', message => {
 	
 	else if (command.startsWith(`carti`)){
 
-		if(args.length <= 1){message.channel.send(`Please input at least one term to ensure accurate Cartinese translation!`);}
+		if(args.length <= 0){message.channel.send(`Please input at least one term to ensure accurate Cartinese translation!`);}
 		else{
 			const lineOne = [`+*`,`ok !`,`+!:)`,`:black_heart:`,`*  *`,`!!`,`:butterfly:`];
 			const lineThree = [`++**`,`+:)`,`:broken_heart:`,`:mushroom::mushroom:`,`& *`,`:two_hearts:`,`lit` + `**!++`];
-			const lineTwo = [`:)`,`xo !`,`:(`,`slatt_!`,`*`,`#love *`,`ok !`, "", "", "", ""];
+			const lineTwo = [`:)`,`xo !`,`:(`,`slatt_!`,`*`,`#love *`,`ok !`, "_", "_", "_", "_"];
 			var temp;
 
 			//line 1
@@ -142,10 +142,10 @@ client.on('message', message => {
 			//line 2
 			for(var n = 1; n < args.length; n++ ){
 				temp = lineTwo[Math.floor(Math.random() * lineTwo.length)];
-				if (!(temp === '')){
+				if (!(temp === '_')){
 				message.channel.send(args[n] + ` ` + temp + ` `);
 				}
-				else message.channel.send(args[n] + ` `);
+				else message.channel.send(args[n] + `_`);
 			}
 			message.channel.send(`\n`);
 
