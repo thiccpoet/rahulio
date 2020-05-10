@@ -144,7 +144,7 @@ client.on('message', message => {
 			temp1 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
 			temp2 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
 			temp3 = lineTwo[Math.floor(Math.random() * lineTwo.length)];
-			message.channel.send(temp1 + ` ` + temp2 + ` ` + message.substring(8) + ` ` + temp3);		
+			message.channel.send(temp1 + ` ` + temp2 + ` ` + message.content.substring(8) + ` ` + temp3);		
 
 			//line 3
 			temp1 = lineThree[Math.floor(Math.random() * lineThree.length)];
