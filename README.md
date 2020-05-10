@@ -1,6 +1,6 @@
-# rahulio
+# Rahulio
 1.0.5
-
+```
 //Rahulio 1.0.5 Discord Bot
 //Main method code can be found in index.js
 //Here are the initialization and instantiation of the bot
@@ -18,3 +18,4 @@ client.once('ready', () => {
 })
 
 client.login(token);
+```
