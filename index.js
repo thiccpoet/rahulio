@@ -49,7 +49,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `what`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + what[Math.floor(Math.random() * what.length)] + `!`);
 				}
@@ -59,7 +59,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `why`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + why[Math.floor(Math.random() * why.length)] + `!`);
 				}
@@ -69,7 +69,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `when`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));
 					message.channel.send(`Answer: ` + when[Math.floor(Math.random() * when.length)] + `!`);	
 				}
@@ -79,7 +79,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `where`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + where[Math.floor(Math.random() * where.length)] + `!`);
 				}
@@ -89,7 +89,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `who`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + who[Math.floor(Math.random() * who.length)] + `!`);
 				}
@@ -99,7 +99,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `how`){
-				if(message.substring(message.length-1) === `?`){
+				if(message.content.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + how[Math.floor(Math.random() * how.length)] + `!`);
 				}
