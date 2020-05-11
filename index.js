@@ -39,7 +39,7 @@ client.on('message', message => {
 			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`a hooker`,`a nobody`,`a rich old man with a wrinkly penis`];
 			const how = [`no idea`,`somehow`,`raw`,`it's impossible`,`with love`,`gotta believe`];
 			if (args[0].toLowerCase() === `is` || args[0].toLowerCase() === `are` || args[0].toLowerCase() === `am` || args[0].toLowerCase() === `will`){
-				if(message.substring(message.content.length-1) === `?`){
+				if(message.content.substring(message.content.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + yn[Math.floor(Math.random() * yn.length)] + `!`);
 				}
@@ -99,7 +99,7 @@ client.on('message', message => {
 				}
 			}
 			else if (args[0].toLowerCase() === `how`){
-				if(message.content.substring(message.length-1) === `?`){
+				if(message.content	.substring(message.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + how[Math.floor(Math.random() * how.length)] + `!`);
 				}
