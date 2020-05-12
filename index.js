@@ -36,7 +36,7 @@ client.on('message', message => {
 			const why = [`no idea`,`carnal urges`,`deformities at birth`,`the ways of life`,`she doesn't love you`,`fortune`,`lack of initative`];
 			const when = [`never`,`soon`,`when pigs fly`,`unknown`,`it's already happened`,`right now`,`in an eternity`];
 			const where = [`in hell`,`up your ass and to the left`,`nowhere`,`somewhere`,`unknown`,`New York`];
-			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`a hooker`,`a nobody`,`a rich old man with a wrinkly penis`];
+			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`a hooker`,`a nobody`,`a rich old man with a deceptively small phallus`];
 			const how = [`no idea`,`somehow`,`raw`,`it's impossible`,`with love`,`gotta believe`];
 			if (args[0].toLowerCase() === `is` || args[0].toLowerCase() === `are` || args[0].toLowerCase() === `am` || args[0].toLowerCase() === `will` || args[0].toLowerCase() === `can` || args[0].toLowerCase() === `should`|| args[0].toLowerCase() === `would`){
 				if(message.content.substring(message.content.length-1) === `?`){
