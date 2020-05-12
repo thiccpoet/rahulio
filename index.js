@@ -6,7 +6,7 @@ const request = require('request');
 const client = new Discord.Client();
 const { prefix, author, version } = require('./config.json');
 const token = process.env.token;
-
+const af = require('./af.json');
 
 
 client.once('ready', () => {
@@ -38,7 +38,7 @@ client.on('message', message => {
 			const where = [`in hell`,`up your ass and to the left`,`nowhere`,`somewhere`,`unknown`,`New York`];
 			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`a hooker`,`a nobody`,`a rich old man with a wrinkly penis`];
 			const how = [`no idea`,`somehow`,`raw`,`it's impossible`,`with love`,`gotta believe`];
-			if (args[0].toLowerCase() === `is` || args[0].toLowerCase() === `are` || args[0].toLowerCase() === `am` || args[0].toLowerCase() === `will`){
+			if (args[0].toLowerCase() === `is` || args[0].toLowerCase() === `are` || args[0].toLowerCase() === `am` || args[0].toLowerCase() === `will` || args[0].toLowerCase() === `can` || args[0].toLowerCase() === `should`|| args[0].toLowerCase() === `would`){
 				if(message.content.substring(message.content.length-1) === `?`){
 					message.channel.send(`Question: ` + message.content.substring(8));	
 					message.channel.send(`Answer: ` + yn[Math.floor(Math.random() * yn.length)] + `!`);
@@ -108,7 +108,7 @@ client.on('message', message => {
 					message.channel.send(`Answer: ` + how[Math.floor(Math.random() * how.length)] + `!`);
 				}
 			}
-			else {message.channel.send(`Please begin your question with [is/are/am/will/what/why/when/where/who/how]!`)};
+			else {message.channel.send(`Please begin your question with [is/are/am/will/should/would/can/what/why/when/where/who/how]!`)};
 		}
 		else {message.channel.send(`Please ask a valid question!`)}
 	}
@@ -181,7 +181,7 @@ client.on('message', message => {
 			.setDescription('Thank you for calling the r$help command!')
 			.setThumbnail('https://imgur.com/12fKOZZ.jpg')
 			.addFields(
-				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$server, r$test, r$coin\n'},
+				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$af, r$server, r$test, r$coin\n'},
 			//	{ name: '\u200B', value: '\u200B' },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
@@ -245,6 +245,13 @@ client.on('message', message => {
 			message.channel.send(temp1 + ` ` + temp2 + ` ` + temp3 + ` `);
 		}
 
+	}
+
+	else if (command === `af`)
+	{
+		var val = Math.floor(Math.random() * af.length);
+		message.channel.send(`Anne Frank Fact #` + val);
+		message.channel.send(af[val]);
 	}
 
 })
