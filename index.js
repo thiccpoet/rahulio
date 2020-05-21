@@ -127,7 +127,7 @@ client.on('message', message => {
 		message.channel.send(`${message.author.tag} has been kicked for poor taste.`);
 	}
 
-	else if (message === `love`)
+	else if (command === `love`)
 	{
 		if (args.length == 2)
 		{
