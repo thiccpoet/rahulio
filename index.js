@@ -127,6 +127,48 @@ client.on('message', message => {
 		message.channel.send(`${message.author.tag} has been kicked for poor taste.`);
 	}
 
+	else if (message === `love`)
+	{
+		if (args.length == 2)
+		{
+			message.channel.send(`Love Calculator for ` + args[0] + ` and ` + args[1] + `!`);
+			var pct = Math.floor(Math.random()*101);
+			if (pct <= 10)
+			{
+				message.channel.send(`No match!`);
+			}
+			else if (pct <= 30)
+			{
+				message.channel.send(`The couple is a ` + pct + `% match!`);
+				message.channel.send(`Bad!`);
+			}
+			else if (pct <= 50)
+			{
+				message.channel.send(`The couple is a ` + pct + `% match!`);
+				message.channel.send(`Questionable!`);
+			}
+			else if (pct <= 70)
+			{
+				message.channel.send(`The couple is a ` + pct + `% match!`);
+				message.channel.send(`Fair!`);
+			}
+			else if (pct <= 90)
+			{
+				message.channel.send(`The couple is a ` + pct + `% match!`);
+				message.channel.send(`Excellent!`);
+			}
+			else 
+			{
+				message.channel.send(`The couple is a ` + pct + `% match!`);
+				message.channel.send(`A perfect match!`);
+			}
+		}
+		else
+		{
+			message.channel.send(`Please use the format 'r$love name1 name2'.`);
+		}
+	}
+
 	/*else if (command.startsWith('img')) 
 		switch (args[0]){
 			case 'img':
