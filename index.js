@@ -122,9 +122,12 @@ client.on('message', message => {
 	}
 
 
-	else if (message === `!play disingenious` || message === `!play disingenuous`){
-		message.member.kick(`Kicked for poor taste`);
-		message.channel.send(`${message.author.tag} has been kicked for poor taste.`);
+	else if (command == `clap`){
+		var strr;
+		for (var k = 0; k < args.length; k++){
+			strr += args[k]+`:clap:`;
+		}
+		message.channel.send(strr);
 	}
 
 	else if (command === `love`)
@@ -223,7 +226,7 @@ client.on('message', message => {
 			.setDescription('Thank you for calling the r$help command!')
 			.setThumbnail('https://imgur.com/12fKOZZ.jpg')
 			.addFields(
-				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$af, r$server, r$test, r$coin\n'},
+				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$love, r$clap, r$af, r$server, r$test, r$coin\n'},
 			//	{ name: '\u200B', value: '\u200B' },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
