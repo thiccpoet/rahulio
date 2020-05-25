@@ -124,10 +124,13 @@ client.on('message', message => {
 
 	else if (command == `clap`){
 		var strr;
+		if(args.length > 1){
 		for (var k = 0; k < args.length; k++){
 			strr += args[k]+`:clap:`;
 		}
 		message.channel.send(strr);
+	}
+		else {message.channel.send(`Please format using [r$clap word1 word2...]`);}
 	}
 
 	else if (command === `love`)
