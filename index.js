@@ -123,8 +123,8 @@ client.on('message', message => {
 
 
 	else if (command == `clap`){
-		var strr;
-		if(args.length > 1){
+		var strr = `:clap:`;
+		if(args.length >= 1){
 		for (var k = 0; k < args.length; k++){
 			strr += args[k]+`:clap:`;
 		}
