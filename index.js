@@ -3,7 +3,7 @@
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
 const request = require('request');
-const cron = require("C:/Users/rahul/node_modules/node-cron"); 
+const cron = require("node-cron"); 
 
 const client = new Discord.Client();
 const { prefix, author, version } = require('./config.json');
