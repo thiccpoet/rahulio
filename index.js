@@ -3,7 +3,7 @@
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
 const request = require('request');
-const cron = require("node-cron"); 
+//const cron = require("node-cron"); 
 
 const client = new Discord.Client();
 const { prefix, author, version } = require('./config.json');
@@ -321,7 +321,8 @@ client.on('guildMemberAdd', member => {
 	channel.send(emb);
 });
 
-cron.schedule("*/1 * * * * *", function() { 
+/** 
+cron.schedule("* /1 * * * * *", function() { 
 	for (i =0; i < guildIDs.length(); i++)
 	{
 		var guild = client.guilds.get(guildIDS[i]);
@@ -331,3 +332,4 @@ cron.schedule("*/1 * * * * *", function() {
 	}
 	//message.channel.send("running a task every 10 second"); 
 });
+*/
