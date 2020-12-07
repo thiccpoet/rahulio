@@ -1,13 +1,16 @@
-//Rahulio 1.0.5 Discord Bot
+//Rahulio 1.1.0 Discord Bot
 
 const Discord = require('discord.js');
 const cheerio = require('cheerio');
 const request = require('request');
+const cron = require('node-cron'); 
+
 const client = new Discord.Client();
 const { prefix, author, version } = require('./config.json');
 const token = process.env.token;
-const af = require('./af.json');
 
+var guildIDs = []; //arr.push(value) / arr.pop(...)
+guildIDs.push(771204228533190666);
 
 client.once('ready', () => {
 	console.log('Rahulio ' + version + ' is online!');
@@ -29,14 +32,24 @@ client.on('message', message => {
 
 	if(command === 'test') message.channel.send('Rahulio ' + version + ' is online and functioning!');
 
+	else if (command == 'sub'){
+		message.channel.send('Subscribed to Zen.');
+		guildIDs.push(args[0]);
+	}
+
+	else if (command == 'unsub'){
+		message.channel.send('Unsubscribed from Zen.');
+		guildIDs.pop(args[0]);
+	}	
+
 	else if (command.startsWith(`ouija`)){
 		if(args.length > 1) {
 			const yn = [`yes`,`no`,`maybe`,`unknown`,`unlikely`,`very likely`,`doubtful`];
-			const what = [`vanilla`,`what?`,`anal`,`unknown`,`everything is meaningless`,`nothing`];
+			const what = [`vanilla`,`what?`,`uhh`,`unknown`,`everything is meaningless`,`nothing`];
 			const why = [`no idea`,`carnal urges`,`deformities at birth`,`the ways of life`,`she doesn't love you`,`fortune`,`lack of initative`];
 			const when = [`never`,`soon`,`when pigs fly`,`unknown`,`it's already happened`,`right now`,`in an eternity`];
 			const where = [`in hell`,`up your ass and to the left`,`nowhere`,`somewhere`,`unknown`,`New York`];
-			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`a hooker`,`a nobody`,`a rich old man with a deceptively small phallus`];
+			const who = [`you`,`your mother`,`your neighbor`,`unknown`,`ion know`,`a nobody`,`not you`];
 			const how = [`no idea`,`somehow`,`raw`,`it's impossible`,`with love`,`gotta believe`];
 			if (args[0].toLowerCase() === `is` || args[0].toLowerCase() === `are` || args[0].toLowerCase() === `am` || args[0].toLowerCase() === `will` || args[0].toLowerCase() === `can` || args[0].toLowerCase() === `should`|| args[0].toLowerCase() === `would`){
 				if(message.content.substring(message.content.length-1) === `?`){
@@ -229,7 +242,7 @@ client.on('message', message => {
 			.setDescription('Thank you for calling the r$help command!')
 			.setThumbnail('https://imgur.com/12fKOZZ.jpg')
 			.addFields(
-				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$love, r$clap, r$af, r$server, r$test, r$coin\n'},
+				{ name: 'Popular Commands', value: 'r$carti, r$ouija, r$love, r$clap, r$server, r$test, r$coin\n'},
 			//	{ name: '\u200B', value: '\u200B' },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
 			//	{ name: 'Inline field title', value: 'Some value here', inline: true },
@@ -295,20 +308,26 @@ client.on('message', message => {
 
 	}
 
-	else if (command === `af`)
-	{
-		var val = Math.floor(Math.random() * af.length);
-		message.channel.send(`Anne Frank Fact #` + val);
-		message.channel.send(af[val]);
-	}
+	
 
 })
 
 client.on('guildMemberAdd', member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === 'member-log');
+	const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
 	if (!channel) return;
 
 	const emb = new Discord.MessageEmbed()
 		.setTitle(`Welcome to `+ guild.name + `, ${member}!\nPlease familiarize yourself with the server's rules!`);
 	channel.send(emb);
+});
+
+cron.schedule("*/1 * * * * *", function() { 
+	for (i =0; i < guildIDs.length(); i++)
+	{
+		var guild = client.guilds.get(guildIDS[i]);
+		if(guild && guild.channels.get(785384824151343109)){
+			guild.channels.get(785384824151343109).send("Good Morning");
+		}
+	}
+	//message.channel.send("running a task every 10 second"); 
 });
