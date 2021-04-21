@@ -135,6 +135,14 @@ client.on('message', message => {
 	}
 
 
+	else if (command === 'rps') {
+		var choice = Math.floor(Math.random()*3);
+		if (choice == 0) message.channel.send(message.author.username + '\'s choice: ROCK');
+		if (choice == 1) message.channel.send(message.author.username + '\'s choice: PAPER');
+		if (choice == 2) message.channel.send(message.author.username + '\'s choice: SCISSORS');
+	}	
+
+
 	else if (command == `clap`){
 		var strr = `:clap:`;
 		if(args.length >= 1){
@@ -254,9 +262,9 @@ client.on('message', message => {
 			.setFooter('Rahulio ' + version, 'https://imgur.com/12fKOZZ.jpg');
 		message.author.send(embed);
 		
-}	
+	}
 
-
+	
 	else if (command === `server`) {
 		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}\nCreated: ${message.guild.createdAt}\nRegion: ${message.guild.region}\nIcon: ${message.guild.iconURL()}`);
 	
